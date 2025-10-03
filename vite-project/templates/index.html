@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentinel-1 SAR Viewer</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <div id="map" style="width:100%; height:100vh;"></div>
+  <script>
+    //SAMPLE COORDS
+    var map = L.map('map', {
+      center: [29.95, -90.07],
+      zoom: 9,
+      zoomControl: true,
+      attributionControl: true
+    });
+
+    var sarLayer = L.tileLayer("{{ tile_url }}", {
+      attribution: "Sentinel-1 SAR"
+    }).addTo(map);
+
+    type="module" 
+    src="/src/main.tsx"
+  </script>
+</body>
+</html>
